@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/10/19 0019
-  Time: 15:05
+  Time: 17:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -153,33 +153,33 @@
 </style>
 <body>
 <form action="/login" method="post">
-<div id="content">
-    <div class="login-header">
-        <img src="img/BILI.jpg">
-    </div>
-    <form>
-        <div class="login-input-box">
-            <span class="icon icon-user"></span>
-            <input type="text" name="u_name" placeholder="Please enter your email/phone">
+    <div id="content">
+        <div class="login-header">
+            <img src="img/BILI.jpg">
         </div>
-        <div class="login-input-box">
-            <span class="icon icon-password"></span>
-            <input type="password" name="u_pass" placeholder="Please enter your password">
+        <form>
+            <div class="login-input-box">
+                <span class="icon icon-user"></span>
+                <input type="text" name="u_name" placeholder="Please enter your email/phone">
+            </div>
+            <div class="login-input-box">
+                <span class="icon icon-password"></span>
+                <input type="password" name="u_pass" placeholder="Please enter your password">
+            </div>
+        </form>
+        <div class="remember-box">
+            <label>
+                <input type="checkbox">&nbsp;Remember Me
+            </label>
         </div>
-    </form>
-    <div class="remember-box">
-        <label>
-            <input type="checkbox">&nbsp;Remember Me
-        </label>
+        <div class="login-button-box">
+            <button type="submit">Login</button>
+        </div>
+        <div class="logon-box">
+            <a href="">Forgot?</a>
+            <a href="register.jsp">Register</a>
+        </div>
     </div>
-    <div class="login-button-box">
-        <button type="submit">Login</button>
-    </div>
-    <div class="logon-box">
-        <a href="">Forgot?</a>
-        <a href="register.jsp">Register</a>
-    </div>
-</div>
 </form>
 </body>
 </html>
