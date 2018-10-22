@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.ResumeDao">
+    <insert id="saveResume">
+          insert into T_RESUME values (RESUME_SEQ.nextval,#{r_name},#{r_sex},#{r_nation},#{r_birthday},#{r_phone},
+          #{r_workyear},#{r_education},#{r_professinal},#{r_school},#{r_address},#{r_email},#{r_hobbies},#{r_state},
+          #{r_target},#{r_uid})
+    </insert>
+    <update id="updateResume">
+        update T_RESUME
+        <set>
+            <if test="r_name!=null">
+                r_name=#{r_name},
+            </if>
+            <if test="r_sex!=null">
+                r_sex=#{r_sex},
+            </if>
+            <if test="r_nation!=null">
+                r_nation=#{r_nation},
+            </if>
+            <if test="r_birthday!=null">
+                r_birthday=#{r_birthday},
+            </if>
+            <if test="r_phone!=null">
+                r_phone=#{r_phone},
+            </if>
+            <if test="r_workyear!=null">
+                r_workyear=#{r_workyear},
+            </if>
+            <if test="r_education!=null">
+                r_education=#{r_education},
+            </if>
+            <if test="r_professinal!=null">
+                r_professinal=#{r_professinal},
+            </if>
+            <if test="r_school!=null">
+                r_school=#{r_school},
+            </if>
+            <if test="r_address!=null">
+                r_address=#{r_address},
+            </if>
+            <if test="r_email!=null">
+                r_email=#{r_email},
+            </if>
+            <if test="r_hobbies!=null">
+                r_hobbies=#{r_hobbies},
+            </if>
+            <if test="r_state!=null">
+                r_state=#{r_state},
+            </if>
+            <if test="r_target!=null">
+                r_target=#{r_target}
+            </if>
+        </set>
+        where r_id=#{r_id}
+    </update>
+    <select id="getALLResume" resultType="com.iotek.model.Resume">
+        select  * from T_RESUME
+    </select>
+    <select id="getResume" resultType="com.iotek.model.Resume">
+        select  * from T_RESUME where r_id=#{r_id}
+    </select>
+    <select id="getALLResume1" resultType="com.iotek.model.Resume">
+        select  * from T_RESUME where r_uid=#{r_uid}
+    </select>
+</mapper>

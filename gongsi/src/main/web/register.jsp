@@ -152,7 +152,7 @@
     }
 </style>
 <body>
-<form action="/login" method="post">
+<form action="/register" method="post">
     <div id="content">
         <div class="login-header">
             <img src="img/BILI.jpg">
@@ -173,12 +173,12 @@
             </label>
         </div>
         <div class="login-button-box">
-            <button type="submit">Login</button>
+            <button type="submit">register</button>
         </div>
         <div class="logon-box">
-            <a href="">Forgot?</a>
-            <a href="register.jsp">Register</a>
+            <a href="index.jsp">login</a>
         </div>
+        <h3 style="color: tomato">${error}</h3>
     </div>
 </form>
 </body>

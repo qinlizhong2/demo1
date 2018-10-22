@@ -5,7 +5,10 @@ import java.io.Serializable;
 public class User  implements Serializable {
     private Integer u_id;
     private String u_name;
+
     private String u_pass;
+
+
 
     public Integer getU_id() {
         return u_id;
@@ -30,6 +33,7 @@ public class User  implements Serializable {
     public void setU_pass(String u_pass) {
         this.u_pass = u_pass;
     }
+
 
     public User() {
     }

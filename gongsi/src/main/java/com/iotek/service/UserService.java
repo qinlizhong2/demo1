@@ -4,4 +4,5 @@ import com.iotek.model.User;
 
 public interface UserService {
     User getUser(User user);
+    Boolean saveUser(User user);
 }

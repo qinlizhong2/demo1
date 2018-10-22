@@ -17,7 +17,7 @@
 </head>
 <style type="text/css">
     body{
-        background: url("img/bg.jpg") no-repeat fixed;
+        background: url("img/2233.jpg") no-repeat fixed;
         /* set background tensile */
         background-size: 100% 100%;
         -moz-background-size: 100% 100%;

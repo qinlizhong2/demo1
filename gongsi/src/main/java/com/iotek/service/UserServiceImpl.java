@@ -14,4 +14,8 @@ public class UserServiceImpl implements  UserService{
     public User getUser(User user) {
         return userDao.getUser(user);
     }
+
+    public Boolean saveUser(User user) {
+        return userDao.saveUser(user);
+    }
 }
