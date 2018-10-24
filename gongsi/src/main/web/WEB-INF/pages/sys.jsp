@@ -44,7 +44,7 @@
             <ul>
                 <li class=" active">
                     <div class="nav_aBg">
-                        <div class="nav_aBg2"><a href="/showRecruit?currentPage=1" class="first_A ">查看招聘信息</a><span class="first_aBg">查看招聘信息</span></div>
+                        <div class="nav_aBg2"><a href="../../addDep.jsp" class="first_A ">添加部门</a><span class="first_aBg">添加部门</span></div>
                     </div>
                 </li>
 
@@ -92,7 +92,7 @@
         <td><%=recruitList.get(i).getZ_education()%></td>
         <td><%=recruitList.get(i).getZ_salary()%></td>
         <td><%=recruitList.get(i).getZ_year()%></td>
-        <td><a href="/addinvite?id=<%=recruitList.get(i).getZ_id()%>"><input type="button" value="投递简历"></a> </td>
+        <td><a href="/"><input type="button" value="投递简历"></a> </td>
     </tr>
     <%
         }

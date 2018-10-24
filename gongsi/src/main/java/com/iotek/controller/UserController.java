@@ -1,8 +1,10 @@
 package com.iotek.controller;
 
+import com.iotek.model.Invite;
 import com.iotek.model.Recruit;
 import com.iotek.model.Resume;
 import com.iotek.model.User;
+import com.iotek.service.InviteService;
 import com.iotek.service.RecruitService;
 import com.iotek.service.ResumeService;
 import com.iotek.service.UserService;
@@ -26,14 +28,20 @@ public class UserController {
     private RecruitService recruitService;
     @Resource
     private ResumeService resumeService;
+    @Resource
+    private InviteService inviteService;
 
     @RequestMapping("login")
     public String login(HttpSession session, Model model, User user) throws Exception {
         User user1 = userService.getUser(user);
         if (null != user1) {
-            session.setAttribute("u1", user1);
-            model.addAttribute("u",user1);
-            return "main";
+            if (user1.getU_id()==22){
+                return "sys";
+            }else {
+                session.setAttribute("u1", user1);
+                model.addAttribute("u",user1);
+                return "main";
+            }
         }
         return "../../index";
     }
@@ -102,6 +110,17 @@ public class UserController {
         resume.setR_state(0);
         resume.setR_uid(uid);
         resumeService.saveResume(resume);
+        return "main";
+    }
+
+    @RequestMapping("/addinvite")
+    public String addinvite(int id,HttpSession session,Model model) throws Exception {
+        User user=(User)session.getAttribute("u1");
+        int uid=user.getU_id();
+        Invite invite=new Invite();
+        invite.setI_uid(uid);
+        invite.setI_rid(id);
+        inviteService.saveInvite(invite);
         return "main";
     }
 

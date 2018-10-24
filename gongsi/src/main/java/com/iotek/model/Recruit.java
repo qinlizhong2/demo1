@@ -8,6 +8,15 @@ public class Recruit implements Serializable {
     private  String z_education;
     private  int z_salary;
     private  int z_year;
+    private  int z_pid;
+
+    public int getZ_pid() {
+        return z_pid;
+    }
+
+    public void setZ_pid(int z_pid) {
+        this.z_pid = z_pid;
+    }
 
     public Recruit() {
     }
@@ -60,6 +69,7 @@ public class Recruit implements Serializable {
                 ", z_education='" + z_education + '\'' +
                 ", z_salary=" + z_salary +
                 ", z_year=" + z_year +
+                ", z_pid=" + z_pid +
                 '}';
     }
 }
