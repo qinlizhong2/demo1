@@ -2,6 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.InviteDao">
     <insert id="saveInvite">
-        insert  into T_INVITE values (INV_SEQ.nextval,#{i_uid},#{i_rid},#{i_reid},#{i_see},#{i_pass})
+        insert  into T_INVITE values (INV_SEQ.nextval,#{i_uid},#{i_rid},#{i_reid},#{i_pass})
     </insert>
+    <update id="updateInvite">
+        update T_INVITE
+        <set>
+            <if test="i_uid!=null">
+                i_uid=#{i_uid},
+            </if>
+            <if test="i_rid!=null">
+                i_rid=#{i_rid},
+            </if>
+            <if test="i_reid!=null">
+                i_reid=#{i_reid},
+            </if>
+            <if test="i_pass!=null">
+                i_pass=#{i_pass}
+            </if>
+
+        </set>
+        <where>
+            i_id=#{i_id}
+        </where>
+    </update>
+
+    <select id="queryInviteByArray" resultType="com.iotek.model.Invite">
+        select a.* from (select T_INVITE.*,rownum rn from  T_INVITE where rownum &lt;=#{PAGESIZE})a where rn&gt;=#{currentPage}
+    </select>
+    <select id="getAllInvite" resultType="com.iotek.model.Invite">
+        select * from T_INVITE
+    </select>
+    <select id="getAllInvite2" resultType="com.iotek.model.Invite">
+        select * from T_INVITE where i_uid=#{i_uid}
+    </select>
+    <select id="getAllInvite1" resultType="com.iotek.model.Invite">
+        select * from T_INVITE where i_id=#{i_id}
+    </select>
 </mapper>

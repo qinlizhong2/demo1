@@ -4,33 +4,9 @@ public class Invite {
     private Integer i_id;
     private Integer i_uid;
     private  Integer i_rid;
-    private  Invite i_reid;
-    private  Invite i_see;
-    private  Invite i_pass;
+    private  Integer i_reid;
 
-    public Invite getI_reid() {
-        return i_reid;
-    }
-
-    public void setI_reid(Invite i_reid) {
-        this.i_reid = i_reid;
-    }
-
-    public Invite getI_see() {
-        return i_see;
-    }
-
-    public void setI_see(Invite i_see) {
-        this.i_see = i_see;
-    }
-
-    public Invite getI_pass() {
-        return i_pass;
-    }
-
-    public void setI_pass(Invite i_pass) {
-        this.i_pass = i_pass;
-    }
+    private  Integer i_pass;
 
     public Integer getI_id() {
         return i_id;
@@ -56,6 +32,23 @@ public class Invite {
         this.i_rid = i_rid;
     }
 
+    public Integer getI_reid() {
+        return i_reid;
+    }
+
+    public void setI_reid(Integer i_reid) {
+        this.i_reid = i_reid;
+    }
+
+
+    public Integer getI_pass() {
+        return i_pass;
+    }
+
+    public void setI_pass(Integer i_pass) {
+        this.i_pass = i_pass;
+    }
+
     @Override
     public String toString() {
         return "Invite{" +
@@ -63,7 +56,6 @@ public class Invite {
                 ", i_uid=" + i_uid +
                 ", i_rid=" + i_rid +
                 ", i_reid=" + i_reid +
-                ", i_see=" + i_see +
                 ", i_pass=" + i_pass +
                 '}';
     }

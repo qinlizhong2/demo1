@@ -19,6 +19,24 @@ public class Resume  implements Serializable {
     private  Integer   r_state;
     private  String    r_target;
     private  Integer   r_uid;
+    private  Integer   r_rid;
+    private Integer   r_read;
+
+    public Integer getR_read() {
+        return r_read;
+    }
+
+    public void setR_read(Integer r_read) {
+        this.r_read = r_read;
+    }
+
+    public Integer getR_rid() {
+        return r_rid;
+    }
+
+    public void setR_rid(Integer r_rid) {
+        this.r_rid = r_rid;
+    }
 
     public String getR_target() {
         return r_target;
