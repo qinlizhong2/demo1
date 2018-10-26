@@ -36,4 +36,12 @@ public class InviteServiceImpl implements  InviteService {
     public boolean updateInvite(Invite invite) {
         return inviteDao.updateInvite(invite);
     }
+
+    public List<Invite> getAllInvite3(Invite invite) {
+        return inviteDao.getAllInvite3( invite);
+    }
+
+    public Invite getAllInvite4(Invite invite) {
+        return inviteDao.getAllInvite4(invite);
+    }
 }

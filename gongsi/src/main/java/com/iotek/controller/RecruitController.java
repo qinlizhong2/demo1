@@ -33,4 +33,20 @@ public class RecruitController {
             return "main";
         }
     }
+    //删除招聘信息
+    @RequestMapping("/delRecruit")
+    public String delRecruit(int id, Model model) throws Exception {
+        Recruit recruit=new Recruit();
+        recruit.setZ_id(id);
+        recruitService.deleteRecruit(recruit);
+            return "main";
+        }
+
+    //添加招聘信息
+    @RequestMapping("/addRecruit")
+    public String addRecruit(Recruit recruit, Model model) throws Exception {
+        recruitService.saveRecruit(recruit);
+        return "main";
+    }
+
 }

@@ -23,4 +23,12 @@ public class RecruitServiceImpl implements  RecruitService {
     public List<Recruit> queryRecruitByArray(HashMap<String, Object> hashMap) {
         return recruitDao.queryRecruitByArray(hashMap);
     }
+
+    public Boolean saveRecruit(Recruit recruit) {
+        return recruitDao.saveRecruit(recruit);
+    }
+
+    public Boolean deleteRecruit(Recruit recruit) {
+        return recruitDao.deleteRecruit(recruit);
+    }
 }

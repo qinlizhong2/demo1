@@ -65,6 +65,12 @@
                         <div class="nav_aBg2"><a href="/showInvite?currentPage=1" class="first_A ">我的面试邀请</a><span class="first_aBg">我的简历</span></div>
                     </div>
                 </li>
+
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showoffer" class="first_A ">我的offer</a><span class="first_aBg">我的offer</span></div>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -162,6 +168,7 @@
         <td>姓名</td>
         <td>性别</td>
         <td>民族</td>
+        <td>年龄</td>
         <td>生日</td>
         <td>电话</td>
         <td>工作年限</td>
@@ -183,6 +190,7 @@
         <td><%=resumeList.get(i).getR_name()%></td>
         <td><%=resumeList.get(i).getR_sex()%></td>
         <td><%=resumeList.get(i).getR_nation()%></td>
+        <td><%=resumeList.get(i).getR_age()%></td>
         <td><%=resumeList.get(i).getR_birthday()%></td>
         <td><%=resumeList.get(i).getR_phone()%></td>
         <td><%=resumeList.get(i).getR_workyear()%></td>

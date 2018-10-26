@@ -58,7 +58,9 @@ public class UserController {
         }
     }
 
-
-
-
+    //返回游客主界面
+    @RequestMapping("/return1")
+    public String return1( Model model) throws Exception {
+            return "main";
+    }
 }

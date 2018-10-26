@@ -4,7 +4,7 @@
     <insert id="saveResume">
           insert into T_RESUME values (RESUME_SEQ.nextval,#{r_name},#{r_sex},#{r_nation},#{r_birthday},#{r_phone},
           #{r_workyear},#{r_education},#{r_professinal},#{r_school},#{r_address},#{r_email},#{r_hobbies},#{r_state},
-          #{r_target},#{r_uid},#{r_rid},#{r_read})
+          #{r_target},#{r_uid},#{r_rid},#{r_read},#{r_age})
     </insert>
     <update id="updateResume">
         update T_RESUME
@@ -55,7 +55,10 @@
                 r_rid=#{r_rid},
             </if>
             <if test="r_read!=null">
-                r_read=#{r_read}
+                r_read=#{r_read},
+            </if>
+            <if test="r_age!=null">
+                r_age=#{r_age}
             </if>
         </set>
         where r_id=#{r_id}

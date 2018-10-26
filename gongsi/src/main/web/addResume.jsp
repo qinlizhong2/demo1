@@ -42,7 +42,6 @@
         <tr>
             <td>出生年月：</td>
             <td width="100" height="50"><input type="text" name="r_birthday"></td>
-
             <td>联系电话：</td>
             <td width="100" height="50"><input type="text" name="r_phone"></td>
             <td>工作经验：</td>
@@ -51,7 +50,6 @@
         <tr>
             <td>学历：</td>
             <td width="100" height="50"><input type="text" name="r_education"></td>
-
             <td>专业：</td>
             <td width="100" height="50"><input type="text" name="r_professinal"></td>
             <td>毕业学校：</td>
@@ -66,8 +64,8 @@
             <td height="50"><input type="text" name="r_email"></td>
         </tr>
         <tr>
-            <td>爱好:</td>
-            <td height="50"><input type="text" name="r_hobbies"></td>
+            <td>年龄:</td>
+            <td height="50"><input type="text" name="r_age"></td>
         </tr>
     </table>
     <hr width="800" align="center">
@@ -77,8 +75,8 @@
             <td height="50"><input  name="r_target"></td>
         </tr>
         <tr>
-            <td>目标行业：</td>
-            <td height="50"></td>
+            <td>爱好：</td>
+            <td height="50"><input type="text" name="r_hobbies"></td>
         </tr>
         <tr>
             <td>期望薪资：</td>

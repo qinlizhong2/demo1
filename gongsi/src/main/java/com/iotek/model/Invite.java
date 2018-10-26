@@ -5,8 +5,16 @@ public class Invite {
     private Integer i_uid;
     private  Integer i_rid;
     private  Integer i_reid;
-
+    private  Integer i_offer;
     private  Integer i_pass;
+
+    public Integer getI_offer() {
+        return i_offer;
+    }
+
+    public void setI_offer(Integer i_offer) {
+        this.i_offer = i_offer;
+    }
 
     public Integer getI_id() {
         return i_id;

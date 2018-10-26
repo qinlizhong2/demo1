@@ -1,6 +1,7 @@
 <%@ page import="com.iotek.model.Recruit" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.iotek.model.Resume" %><%--
+<%@ page import="com.iotek.model.Resume" %>
+<%@ page import="com.iotek.model.Invite" %><%--
   Created by IntelliJ IDEA.
   User: 11929
   Date: 2018/10/18
@@ -58,7 +59,16 @@
                         <div class="nav_aBg2"><a href="/showResume2" class="first_A ">查看已读简历</a><span class="first_aBg">我的简历</span></div>
                     </div>
                 </li>
-
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showInvite1" class="first_A ">已同意面试人员</a><span class="first_aBg">已同意面试人员</span></div>
+                    </div>
+                </li>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/toaddpos" class="first_A ">添加部门</a><span class="first_aBg">添加部门</span></div>
+                    </div>
+                </li>
 
             </ul>
         </div>
@@ -69,6 +79,38 @@
     </div>
 </div>
 
+<div align="center">
+    <%
+        List<Invite> inviteList = (List<Invite>) request.getAttribute("inviteList");
+        if (inviteList!=null){
+    %>
+    <table border="1" cellspacing="0" >
+        <tr>
+            <td>面试编号</td>
+            <td>用户ID</td>
+            <td>招聘ID</td>
+            <td>简历ID</td>
+            <td>发送offer</td>
+        </tr>
+        <%
+            for (int i = 0; i < inviteList.size(); i++) {
+        %>
+        <tr>
+            <td><%=inviteList.get(i).getI_id()%></td>
+            <td><%=inviteList.get(i).getI_uid()%></td>
+            <td><%=inviteList.get(i).getI_rid()%></td>
+            <td><%=inviteList.get(i).getI_reid()%></td>
+            <td><a href="/sendoffer?id=<%=inviteList.get(i).getI_id()%>"><input type="button" value="发送offer"></a> </td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+    <%
+        }
+    %>
+
+</div>
 
 
 <div align="center">
@@ -145,6 +187,7 @@
         <%
             }
         %>
+        <h3 style="color: tomato">${msg}</h3>
 </div>
 </body>
 </html>

@@ -4,6 +4,9 @@
     <insert id="saveDepartment">
         insert into  T_DEPARTMENT values (DEP_SEQ.nextval,#{d_name},#{d_creattime})
     </insert>
+    <delete id="deleteDepartment">
+        delete from  T_DEPARTMENT where d_id=#{d_id}
+    </delete>
     <select id="getALLDepartment" resultType="com.iotek.model.Department">
         select * from T_DEPARTMENT
     </select>

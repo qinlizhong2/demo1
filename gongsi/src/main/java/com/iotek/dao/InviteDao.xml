@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.InviteDao">
     <insert id="saveInvite">
-        insert  into T_INVITE values (INV_SEQ.nextval,#{i_uid},#{i_rid},#{i_reid},#{i_pass})
+        insert  into T_INVITE values (INV_SEQ.nextval,#{i_uid},#{i_rid},#{i_reid},#{i_pass},#{i_offer})
     </insert>
     <update id="updateInvite">
         update T_INVITE
@@ -17,9 +17,11 @@
                 i_reid=#{i_reid},
             </if>
             <if test="i_pass!=null">
-                i_pass=#{i_pass}
+                i_pass=#{i_pass},
             </if>
-
+            <if test="i_offer!=null">
+                i_offer=#{i_offer}
+            </if>
         </set>
         <where>
             i_id=#{i_id}
@@ -37,5 +39,11 @@
     </select>
     <select id="getAllInvite1" resultType="com.iotek.model.Invite">
         select * from T_INVITE where i_id=#{i_id}
+    </select>
+    <select id="getAllInvite3" resultType="com.iotek.model.Invite">
+        select * from T_INVITE where i_pass=#{i_pass}
+    </select>
+    <select id="getAllInvite4" resultType="com.iotek.model.Invite">
+        select * from T_INVITE where i_offer=#{i_offer} and i_uid=#{i_uid}
     </select>
 </mapper>

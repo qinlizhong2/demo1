@@ -12,4 +12,6 @@ public interface InviteService {
     List<Invite> getAllInvite2(Invite invite);
     Invite getAllInvite1(Invite invite);
     boolean updateInvite(Invite invite);
+    List<Invite> getAllInvite3(Invite invite);
+    Invite getAllInvite4(Invite invite);
 }
