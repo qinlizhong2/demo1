@@ -4,10 +4,29 @@
     <insert id="saveDepartment">
         insert into  T_DEPARTMENT values (DEP_SEQ.nextval,#{d_name},#{d_creattime})
     </insert>
+    <update id="updateDepartment">
+        update  T_DEPARTMENT
+        <set>
+           <if test="d_name!=null">
+               d_name=#{d_name},
+           </if>
+            <if test="d_creattime!=null">
+                d_creattime=#{d_creattime}
+            </if>
+        </set>
+        where d_id=#{d_id}
+    </update>
     <delete id="deleteDepartment">
         delete from  T_DEPARTMENT where d_id=#{d_id}
     </delete>
     <select id="getALLDepartment" resultType="com.iotek.model.Department">
         select * from T_DEPARTMENT
     </select>
+    <select id="queryDepartmentByArray" resultType="com.iotek.model.Department">
+        select a.* from (select T_DEPARTMENT.*,rownum rn from  T_DEPARTMENT where rownum &lt;=#{PAGESIZE})a where rn&gt;=#{currentPage}
+    </select>
+    <select id="getDepartment" resultType="com.iotek.model.Department">
+
+    </select>
+
 </mapper>

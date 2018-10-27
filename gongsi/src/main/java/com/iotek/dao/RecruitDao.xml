@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.RecruitDao">
     <insert id="saveRecruit">
-        insert into T_RECRUIT VALUES (REC_SEQ.nextval,#{z_name,#{z_education},#{z_salary},
+        insert into T_RECRUIT VALUES (REC_SEQ.nextval,#{z_name},#{z_education},#{z_salary},
         #{z_year},#{z_pid})
     </insert>
     <delete id="deleteRecruit">
         delete from  T_RECRUIT where z_id=#{z_id}
     </delete>
     <select id="getRecruit" resultType="com.iotek.model.Recruit">
-        select * from  T_RECRUIT where Z_ID=#{z_id}
+        select * from  T_RECRUIT where z_id=#{z_id}
     </select>
     <select id="queryRecruitByArray" resultType="com.iotek.model.Recruit">
          select a.* from (select T_RECRUIT.*,rownum rn from  T_RECRUIT where rownum &lt;=#{PAGESIZE})a where rn&gt;=#{currentPage}

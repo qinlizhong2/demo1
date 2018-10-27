@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.iotek.model.Recruit" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.iotek.model.Resume" %>
@@ -69,15 +70,111 @@
                         <div class="nav_aBg2"><a href="/toaddpos" class="first_A ">添加部门</a><span class="first_aBg">添加部门</span></div>
                     </div>
                 </li>
-
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showpos" class="first_A ">查看职位</a><span class="first_aBg">查看职位</span></div>
+                    </div>
+                </li>
             </ul>
         </div>
+</div>
+
+    <div class="navWrap">
+        <div class="navInner">
+            <ul>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showpos1?currentPage=1" class="first_A ">管理部门</a><span class="first_aBg">管理部门</span></div>
+                    </div>
+                </li>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showDep" class="first_A ">查看部门</a><span class="first_aBg">查看部门</span></div>
+                    </div>
+                </li>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/showdep1?currentPage=1" class="first_A ">管理部门</a><span class="first_aBg">管理部门</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 
 
+    <div align="center">
+        <c:if test="${not empty departmentList}">
+            <table border="1" cellspacing="0">
+                <tr>
+                    <td>部门ID</td>
+                    <td>部门名称</td>
+                    <td>创建日期</td>
+                    <td>修改部门</td>
+                    <td>删除部门</td>
+                </tr>
+                <c:forEach items="${departmentList}" var="item">
+                    <tr>
+                        <td>${item.d_id}</td>
+                        <td>${item.d_name}</td>
+                        <td>${item.d_creattime}</td>
+                        <td><a href="/toupdatepos?id=${item.d_id}"><input type="button" value="修改"></a></td>
+                        <td><a href="/deletepos?id=${item.d_id}"><input type="button" value="删除"></a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <%
+                if(request.getAttribute("totalPages")!=null){
+                    int totalPages = (int) request.getAttribute("totalPages");
+                    if (totalPages!=0){
+                        for (int i = 0; i <totalPages; i++) {
+            %>
+            <a href="/showdep1?currentPage=<%=i+1%>"><%=i+1%></a>
+            <%
+                        }
+                    }
+                }
+            %>
+        </c:if>
 
     </div>
-</div>
+
+
+    <div align="center">
+        <c:if test="${not empty positionList}">
+            <table border="1" cellspacing="0">
+            <tr>
+                <td>职位ID</td>
+                <td>职位名称</td>
+                <td>部门ID</td>
+                <td>修改职位</td>
+                <td>删除职位</td>
+            </tr>
+            <c:forEach items="${positionList}" var="item">
+                <tr>
+                    <td>${item.p_id}</td>
+                    <td>${item.p_name}</td>
+                    <td>${item.p_did}</td>
+                    <td><a href="/toupdatepos?id=${item.p_id}"><input type="button" value="修改"></a></td>
+                    <td><a href="/deletepos?id=${item.p_id}"><input type="button" value="删除"></a></td>
+                </tr>
+            </c:forEach>
+            </table>
+            <%
+                if(request.getAttribute("totalPages")!=null){
+                    int totalPages = (int) request.getAttribute("totalPages");
+                    if (totalPages!=0){
+                        for (int i = 0; i <totalPages; i++) {
+            %>
+            <a href="/showpos1?currentPage=<%=i+1%>"><%=i+1%></a>
+            <%
+                        }
+                    }
+                }
+            %>
+        </c:if>
+
+    </div>
 
 <div align="center">
     <%
@@ -109,7 +206,6 @@
     <%
         }
     %>
-
 </div>
 
 
@@ -149,7 +245,7 @@
 <%
     }
 %>
-
+</div>
 
     <div align="center">
         <%
@@ -188,6 +284,9 @@
             }
         %>
         <h3 style="color: tomato">${msg}</h3>
+</div>
+
+
 </div>
 </body>
 </html>

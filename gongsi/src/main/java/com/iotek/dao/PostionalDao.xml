@@ -4,4 +4,30 @@
     <insert id="SavePostional">
         insert into T_POSITION values (POS_SEQ.nextval,#{p_name},#{p_did})
     </insert>
+    <update id="updatePostional">
+        update  T_POSITION
+        <set>
+            <if test="p_name!=null">
+                p_name=#{p_name},
+            </if>
+            <if test="p_did!=null">
+                p_did=#{p_did}
+            </if>
+        </set>
+        <where>
+            p_id=#{p_id}
+        </where>
+    </update>
+    <delete id="deletePostional">
+        delete from T_POSITION where p_id=#{p_id}
+    </delete>
+    <select id="getALLPosition" resultType="com.iotek.model.Position">
+        select  * from  T_POSITION
+    </select>
+    <select id="queryPositionByArray" resultType="com.iotek.model.Position">
+        select a.* from (select T_POSITION.*,rownum rn from  T_POSITION where rownum &lt;=#{PAGESIZE})a where rn&gt;=#{currentPage}
+    </select>
+    <select id="getPosition" resultType="com.iotek.model.Position">
+        SELECT * from  T_POSITION where p_id=#{p_id}
+    </select>
 </mapper>

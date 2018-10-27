@@ -16,6 +16,15 @@ public class Employee {
     private  String  e_identity;
     private   String  e_pass;
     private  Integer e_uid;
+    private  Integer e_pid;
+
+    public Integer getE_pid() {
+        return e_pid;
+    }
+
+    public void setE_pid(Integer e_pid) {
+        this.e_pid = e_pid;
+    }
 
     public Integer getE_uid() {
         return e_uid;

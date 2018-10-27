@@ -22,4 +22,9 @@ import java.util.List;
 @Controller
 public class SystemController {
 
+    //返回游客主界面
+    @RequestMapping("/return2")
+    public String return2( Model model) throws Exception {
+        return "sys";
+    }
 }

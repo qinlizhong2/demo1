@@ -5,6 +5,7 @@ import com.iotek.model.Employee;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements  EmployeeService {
@@ -21,5 +22,13 @@ public class EmployeeServiceImpl implements  EmployeeService {
 
     public Employee getEmployee1(Employee employee) {
         return employeeDao.getEmployee1(employee);
+    }
+
+    public List<Employee> getAllEmployee() {
+        return employeeDao.getAllEmployee();
+    }
+
+    public List<Employee> getAllEmployeebypid(Employee employee) {
+        return employeeDao.getAllEmployeebypid(employee);
     }
 }

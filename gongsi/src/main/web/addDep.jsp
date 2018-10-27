@@ -37,6 +37,7 @@
 </div>
     <input type="submit" value="提交">
 </form>
+<h3 style="color: tomato">${error}</h3>
 </body>
 </html>
 

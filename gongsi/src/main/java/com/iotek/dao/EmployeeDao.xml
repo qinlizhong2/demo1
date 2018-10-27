@@ -3,12 +3,19 @@
 <mapper namespace="com.iotek.dao.EmployeeDao">
     <insert id="saveEmployee">
         insert into T_EMPL values (EMP_SEQ.nextval,#{e_name},#{e_job},#{e_sal},#{e_sex},#{e_nation},
-        #{e_birthday},#{e_phone},#{e_education},#{e_address},#{e_email},#{e_age},#{e_identity},#{e_pass},#{e_uid})
+        #{e_birthday},#{e_phone},#{e_education},#{e_address},#{e_email},#{e_age},#{e_identity},#{e_pass},#{e_uid}
+        ,#{e_pid})
     </insert>
     <select id="getEmployee" resultType="com.iotek.model.Employee">
         select * from  T_EMPL where e_id=#{e_id}
     </select>
     <select id="getEmployee1" resultType="com.iotek.model.Employee">
         select * from  T_EMPL where e_uid=#{e_uid}
+    </select>
+    <select id="getAllEmployee" resultType="com.iotek.model.Employee">
+        select * from T_EMPL
+    </select>
+    <select id="getAllEmployeebypid" resultType="com.iotek.model.Employee">
+        select * from  T_EMPL where e_pid=#{e_pid}
     </select>
 </mapper>

@@ -78,7 +78,7 @@
 
 
     </div>
-</div>
+
 
 
 
@@ -266,5 +266,8 @@
     %>
     <h3 style="color: tomato">${msg}</h3>
 </div>
+
+</div>
+
 </body>
 </html>
