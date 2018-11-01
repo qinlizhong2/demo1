@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.TrainDao">
+    <insert id="saveTrain">
+        insert into  T_TRAIN values (TR_SEQ.nextval,#{tr_topic},#{tr_content},
+        #{tr_object},#{tr_starttime},#{tr_endtime},#{tr_place})
+    </insert>
+    <update id="updateTrain">
+        update T_TRAIN
+        <set>
+            <if test="tr_topic!=null">
+                tr_topic=#{tr_topic},
+            </if>
+            <if test="tr_content!=null">
+                tr_content=#{tr_content},
+            </if>
+            <if test="tr_object!=null">
+                tr_object=#{tr_object},
+            </if>
+            <if test="tr_starttime!=null">
+                tr_starttime=#{tr_starttime},
+            </if>
+            <if test="tr_endtime!=null">
+                tr_endtime=#{tr_endtime},
+            </if>
+            <if test="tr_place!=null">
+                tr_place=#{tr_place}
+            </if>
+            <where>
+                tr_id=#{tr_id}
+            </where>
+        </set>
+    </update>
+    <delete id="deleteTrain">
+        delete FROM  T_TRAIN WHERE tr_id=#{tr_id}
+    </delete>
+    <select id="getTrain" resultType="com.iotek.model.Train">
+        select * from T_TRAIN where tr_id=#{tr_id}
+    </select>
+    <select id="getAllTrain" resultType="com.iotek.model.Train">
+        select * from  T_TRAIN
+    </select>
+    <select id="getTrain1" resultType="com.iotek.model.Train">
+        select * from  T_TRAIN where tr_object=#{tr_object}
+    </select>
+</mapper>

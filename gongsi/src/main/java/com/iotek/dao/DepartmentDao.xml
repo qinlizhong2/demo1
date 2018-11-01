@@ -26,7 +26,7 @@
         select a.* from (select T_DEPARTMENT.*,rownum rn from  T_DEPARTMENT where rownum &lt;=#{PAGESIZE})a where rn&gt;=#{currentPage}
     </select>
     <select id="getDepartment" resultType="com.iotek.model.Department">
-
+    select * from T_DEPARTMENT where d_id=#{d_id}
     </select>
 
 </mapper>

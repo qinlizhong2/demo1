@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import java.util.Date;
+
 public class Employee {
     private  Integer  e_id;
     private  String e_name;
@@ -17,6 +19,24 @@ public class Employee {
     private   String  e_pass;
     private  Integer e_uid;
     private  Integer e_pid;
+    private  Integer  e_state;
+    private  Date  e_jointime;
+
+    public Integer getE_state() {
+        return e_state;
+    }
+
+    public void setE_state(Integer e_state) {
+        this.e_state = e_state;
+    }
+
+    public Date getE_jointime() {
+        return e_jointime;
+    }
+
+    public void setE_jointime(Date e_jointime) {
+        this.e_jointime = e_jointime;
+    }
 
     public Integer getE_pid() {
         return e_pid;

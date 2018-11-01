@@ -30,4 +30,7 @@
     <select id="getPosition" resultType="com.iotek.model.Position">
         SELECT * from  T_POSITION where p_id=#{p_id}
     </select>
+    <select id="getPositionbydid" resultType="com.iotek.model.Position">
+        SELECT * from  T_POSITION where p_did=#{p_did}
+    </select>
 </mapper>

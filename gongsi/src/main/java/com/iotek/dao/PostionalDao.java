@@ -12,4 +12,5 @@ public interface PostionalDao {
     Boolean updatePostional(Position position);
     Boolean deletePostional(Position position);
     List<Position> queryPositionByArray(HashMap<String,Object> hashMap);
+    List<Position> getPositionbydid(Position position);
 }

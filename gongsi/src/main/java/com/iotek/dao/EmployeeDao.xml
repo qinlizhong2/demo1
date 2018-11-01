@@ -4,8 +4,67 @@
     <insert id="saveEmployee">
         insert into T_EMPL values (EMP_SEQ.nextval,#{e_name},#{e_job},#{e_sal},#{e_sex},#{e_nation},
         #{e_birthday},#{e_phone},#{e_education},#{e_address},#{e_email},#{e_age},#{e_identity},#{e_pass},#{e_uid}
-        ,#{e_pid})
+        ,#{e_pid},#{e_state},#{e_jointime})
     </insert>
+    <update id="updateEmployee">
+        update  T_EMPL
+        <set>
+            <if test="e_name!=null">
+                e_name=#{e_name},
+            </if>
+            <if test="e_job!=null">
+                e_job=#{e_job},
+            </if>
+            <if test="e_sal!=null">
+                e_sal=#{e_sal},
+            </if>
+            <if test="e_sex!=null">
+                e_sex=#{e_sex},
+            </if>
+            <if test="e_nation">
+                e_nation=#{e_nation},
+            </if>
+            <if test="e_birthday!=null">
+                e_birthday=#{e_birthday},
+            </if>
+            <if test="e_phone!=null">
+                e_phone=#{e_phone},
+            </if>
+            <if test="e_education!=null">
+                e_education=#{e_education},
+            </if>
+            <if test="e_address!=null">
+                e_address=#{e_address},
+            </if>
+            <if test="e_email!=null">
+                e_email=#{e_email},
+            </if>
+            <if test="e_age!=null">
+                e_age=#{e_age},
+            </if>
+            <if test="e_identity!=null">
+                e_identity=#{e_identity},
+            </if>
+            <if test="e_pass!=null">
+                e_pass=#{e_pass},
+            </if>
+            <if test="e_uid!=null">
+                e_uid=#{e_uid},
+            </if>
+            <if test="e_pid!=null">
+                e_pid=#{e_pid},
+            </if>
+            <if test="e_state!=null">
+                e_state=#{e_state},
+            </if>
+            <if test="e_jointime!=null">
+                e_jointime=#{e_jointime}
+            </if>
+        </set>
+        <where>
+            e_id=#{e_id}
+        </where>
+    </update>
     <select id="getEmployee" resultType="com.iotek.model.Employee">
         select * from  T_EMPL where e_id=#{e_id}
     </select>
@@ -17,5 +76,11 @@
     </select>
     <select id="getAllEmployeebypid" resultType="com.iotek.model.Employee">
         select * from  T_EMPL where e_pid=#{e_pid}
+    </select>
+    <select id="getAllEmployeebystate" resultType="com.iotek.model.Employee">
+        select * from T_EMPL where e_state=#{e_state}
+    </select>
+    <select id="getEmployee2" resultType="com.iotek.model.Employee">
+        select * from T_EMPL where e_identity=#{e_identity} AND e_pass=#{e_pass}
     </select>
 </mapper>

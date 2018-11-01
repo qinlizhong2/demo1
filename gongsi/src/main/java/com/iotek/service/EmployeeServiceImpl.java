@@ -16,6 +16,10 @@ public class EmployeeServiceImpl implements  EmployeeService {
         return employeeDao.saveEmployee(employee);
     }
 
+    public Employee getEmployee2(Employee employee) {
+        return employeeDao.getEmployee2(employee);
+    }
+
     public Employee getEmployee(Employee employee) {
         return employeeDao.getEmployee(employee);
     }
@@ -28,7 +32,15 @@ public class EmployeeServiceImpl implements  EmployeeService {
         return employeeDao.getAllEmployee();
     }
 
+    public List<Employee> getAllEmployeebystate(Employee employee) {
+        return employeeDao.getAllEmployeebystate(employee);
+    }
+
     public List<Employee> getAllEmployeebypid(Employee employee) {
         return employeeDao.getAllEmployeebypid(employee);
+    }
+
+    public Boolean updateEmployee(Employee employee) {
+        return employeeDao.updateEmployee(employee);
     }
 }

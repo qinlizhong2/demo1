@@ -17,7 +17,7 @@
 </head>
 <style type="text/css">
     body{
-        background: url("img/2233.jpg") no-repeat fixed;
+        background: url("img/emp.jpg") no-repeat fixed;
         /* set background tensile */
         background-size: 100% 100%;
         -moz-background-size: 100% 100%;
@@ -152,7 +152,7 @@
     }
 </style>
 <body>
-<form action="/login" method="post">
+<form action="/emplogin" method="post">
 <div id="content">
     <div class="login-header">
         <img src="img/BILI.jpg">
@@ -160,11 +160,11 @@
     <form>
         <div class="login-input-box">
             <span class="icon icon-user"></span>
-            <input type="text" name="u_name" placeholder="Please enter your email/phone">
+            <input type="text" name="e_identity" placeholder="Please enter your email/phone">
         </div>
         <div class="login-input-box">
             <span class="icon icon-password"></span>
-            <input type="password" name="u_pass" placeholder="Please enter your password">
+            <input type="password" name="e_pass" placeholder="Please enter your password">
         </div>
     </form>
     <div class="remember-box">
@@ -176,7 +176,7 @@
         <button type="submit">Login</button>
     </div>
     <div class="logon-box">
-        <a href="login.jsp">员工登陆</a>
+        <a href="">Forgot?</a>
         <a href="register.jsp">Register</a>
     </div>
 </div>

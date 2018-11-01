@@ -32,7 +32,7 @@
                 <div class="headTopLink">
                     <span><a href="http://mail.jx-keyi.com/" target="_blank">企业邮箱</a></span> |
                     <span><a href="http://oa.jx-keyi.com" target="_blank">OA系统</a></span> |
-                    <span><a href="/yuangong/login.html" target="_blank">员工登录</a></span>  |
+                    <span><a href="../../login.jsp" target="_blank">员工登录</a></span>  |
                     <span><a href="/itsm/login.html" target="_blank">ITSM平台</a></span>
                 </div>
                 <div class="topTel"><img src="../../img/hotTel.jpg"  alt="客服热线"/></div>
@@ -67,7 +67,7 @@
                 </li>
                 <li class=" active">
                     <div class="nav_aBg">
-                        <div class="nav_aBg2"><a href="/toaddpos" class="first_A ">添加部门</a><span class="first_aBg">添加部门</span></div>
+                        <div class="nav_aBg2"><a href="/toaddpos" class="first_A ">添加职位</a><span class="first_aBg">添加职位</span></div>
                     </div>
                 </li>
                 <li class=" active">
@@ -84,7 +84,7 @@
             <ul>
                 <li class=" active">
                     <div class="nav_aBg">
-                        <div class="nav_aBg2"><a href="/showpos1?currentPage=1" class="first_A ">管理部门</a><span class="first_aBg">管理部门</span></div>
+                        <div class="nav_aBg2"><a href="/showpos1?currentPage=1" class="first_A ">管理职位</a><span class="first_aBg">管理职位</span></div>
                     </div>
                 </li>
                 <li class=" active">
@@ -97,11 +97,51 @@
                         <div class="nav_aBg2"><a href="/showdep1?currentPage=1" class="first_A ">管理部门</a><span class="first_aBg">管理部门</span></div>
                     </div>
                 </li>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/toaddTrain" class="first_A ">添加培训</a><span class="first_aBg">添加培训</span></div>
+                    </div>
+                </li>
+                <li class=" active">
+                    <div class="nav_aBg">
+                        <div class="nav_aBg2"><a href="/ShowTrain" class="first_A ">查看培训表</a><span class="first_aBg">查看培训表</span></div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 
+    <div align="center">
+        <c:if test="${not empty trainList}">
+            <table border="1" cellspacing="0">
+                <tr>
+                    <td>培训ID</td>
+                    <td>培训主题</td>
+                    <td>具体内容</td>
+                    <td>培训对象</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>培训地点</td>
+                    <td>修改</td>
+                    <td>删除</td>
+                </tr>
+                <c:forEach items="${trainList}" var="item">
+                    <tr>
+                        <td>${item.tr_id}</td>
+                        <td>${item.tr_topic}</td>
+                        <td>${item.tr_content}</td>
+                        <td>${item.tr_object}</td>
+                        <td>${item.tr_starttime}</td>
+                        <td>${item.tr_endtime}</td>
+                        <td>${item.tr_place}</td>
+                        <td><a href="/toupdateTrain?id=${item.tr_id}"><input type="button" value="修改"></a></td>
+                        <td><a href="/deleteTrain?id=${item.tr_id}"><input type="button" value="删除"></a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
 
+    </div>
 
     <div align="center">
         <c:if test="${not empty departmentList}">
@@ -119,7 +159,7 @@
                         <td>${item.d_name}</td>
                         <td>${item.d_creattime}</td>
                         <td><a href="/toupdatepos?id=${item.d_id}"><input type="button" value="修改"></a></td>
-                        <td><a href="/deletepos?id=${item.d_id}"><input type="button" value="删除"></a></td>
+                        <td><a href="/deletedep?id=${item.d_id}"><input type="button" value="删除"></a></td>
                     </tr>
                 </c:forEach>
             </table>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.SalaryDao">
+    <insert id="saveSalary">
+        insert  into  T_SALARY values (SAL_SEQ.nextval,#{s_performance},#{s_overtime},
+        #{s_punish},#{s_social},#{s_final},#{s_uid})
+    </insert>
+    <update id="UpdateSalary">
+        update T_SALARY
+        <set>
+            <if test="s_performance!=null">
+                s_performance=#{s_performance},
+            </if>
+            <if test="s_overtime!=null">
+                s_overtime=#{s_overtime},
+            </if>
+            <if test="s_punish!=null">
+                s_punish=#{s_punish},
+            </if>
+            <if test="s_social!=null">
+                s_social=#{s_social},
+            </if>
+            <if test="s_final!=null">
+                s_final=#{s_final}
+            </if>
+            <where>
+                s_id=#{s_id}
+            </where>
+        </set>
+    </update>
+    <select id="getSalary" resultType="com.iotek.model.Salary">
+        select  * from  T_SALARY where s_id=#{s_id}
+    </select>
+    <select id="getSalaryBYUID" resultType="com.iotek.model.Salary">
+        select  * from  T_SALARY where s_uid=#{s_uid}
+    </select>
+</mapper>

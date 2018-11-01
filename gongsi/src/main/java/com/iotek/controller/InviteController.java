@@ -128,6 +128,8 @@ public class InviteController {
         employee.setE_identity(resume1.getR_phone());
         employee.setE_pass("123456");
         employee.setE_uid(invite1.getI_uid());
+        employee.setE_state(0);
+        employee.setE_pid(recruit1.getZ_pid());
         if(invite1.getI_offer()==0){
             invite1.setI_offer(1);
             inviteService.updateInvite(invite1);

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,7 @@ public class DepartmentController {
     @RequestMapping("addDep")
     public String login(Model model, Department department) throws Exception {
         Date date = new Date();
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd : HH:mm:ss");
         java.sql.Date date1=new java.sql.Date(dateFormat.parse(dateFormat.format(date)).getTime());
         department.setD_creattime(date1);
         List<Department> departmentList=departmentService.getALLDepartment();
@@ -88,17 +89,26 @@ public class DepartmentController {
         department.setD_id(id);
         Department department1=departmentService.getDepartment(department);
         Position position=new Position();
-        position.setP_id(id);
-        Position position1=positionService.getPosition(position);
-        Employee employee=new Employee();
-        employee.setE_pid(id);
-        List<Employee> employeeList=employeeService.getAllEmployeebypid(employee);
-        if (employeeList.size()==0){
-            positionService.deletePostional(position1);
-            model.addAttribute("msg","删除成功");
+        position.setP_did(department1.getD_id());
+        List<Position> positionList=positionService.getPositionbydid(position);
+        if (positionList.size()!=0) {
+            Employee employee = new Employee();
+            for (int i = 0; i < positionList.size(); i++) {
+                employee.setE_pid(positionList.get(i).getP_id());
+                List<Employee> employeeList1 = employeeService.getAllEmployeebypid(employee);
+                if (employeeList1.size() != 0) {
+                    model.addAttribute("msg", "该职位有在职员工无法删除");
+                    return "sys";
+                    }
+                }
+            for (int i = 0; i <positionList.size() ; i++) {
+                positionService.deletePostional(positionList.get(i));
+            }
+            departmentService.deleteDepartment(department1);
+            model.addAttribute("msg", "删除成功");
             return "sys";
         }else {
-            model.addAttribute("msg","该职位有在职员工无法删除");
+            departmentService.deleteDepartment(department1);
         }
         return "sys";
     }

@@ -12,4 +12,5 @@ public interface PositionService {
     Boolean deletePostional(Position position);
     List<Position> queryPositionByArray(HashMap<String,Object> hashMap);
     Position getPosition(Position position);
+    List<Position> getPositionbydid(Position position);
 }

@@ -36,4 +36,8 @@ public class PositionServiceImpl implements  PositionService{
     public Position getPosition(Position position) {
         return postionalDao.getPosition(position);
     }
+
+    public List<Position> getPositionbydid(Position position) {
+        return postionalDao.getPositionbydid(position);
+    }
 }
